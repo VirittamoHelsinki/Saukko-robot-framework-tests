@@ -1,0 +1,6 @@
+{
+    "robot.codeFormatter": "builtinTidy",
+    "robot.codeLens.enable": true,
+    "robot.codeLens.interactiveConsole.enable": true,
+    "robot.codeLens.run.enable": true
+}

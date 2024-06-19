@@ -1,0 +1,19 @@
+1717135003663	geckodriver	INFO	Listening on 127.0.0.1:56891
+1717135006770	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56892" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\saesha\\AppData\\Local\\Temp\\rust_mozprofileXe7PL7"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1717135007080	Marionette	INFO	Marionette enabled
+1717135007190	Marionette	INFO	Listening on port 56901
+WebDriver BiDi listening on ws://127.0.0.1:56892
+Read port: 56901
+1717135007374	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:56892/devtools/browser/33727b8a-4a78-4e2f-9781-3b1410df7987
+1717135037121	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:5173."
+1717135053658	Marionette	INFO	Stopped listening on port 56901
+JavaScript warning: http://localhost:5173/node_modules/.vite/deps/universal-cookie.js?v=784f441d, line 9: Script terminated by timeout at:
+parse@http://localhost:5173/node_modules/.vite/deps/universal-cookie.js?v=784f441d:9:7
+Cookies/this.update@http://localhost:5173/node_modules/.vite/deps/universal-cookie.js?v=784f441d:183:22
+
+Dynamically enable window occlusion 1
