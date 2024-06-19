@@ -1,7 +1,15 @@
     [Documentation]
-    ...    Test description:
-    ...        
-    ...    Test proceeding:
-    ...        
-    ...    Expected output / acceptance criteria:
-    ...		
+    
+    ...     Test description:
+    ...             These files belong to the Saukko project in Virittämö, which tests the interface using the Robot Framework.
+    ...     
+    ...     Test proceeding:
+    ...         The Robot Framework goes through all the steps in the front end and tests if everything works as expected. 
+    ...         Specifically, after changes are made to some parts during the development process, we need to check all other parts to ensure they are not affected by the changes.
+    ...         Using the Robot Framework, we can test all parts in a thorough and fast manner.
+    ...         Based on the Robot Framework report, we can analyze all parts and any errors.
+    ...         We can execute the whole process by typing "robot saukko.robot" in the command line, or we can test each part separately from the saukko.robot file. In this file, all parts are separated, and we can test them individually.
+    ...         For example, if a developer makes changes to the login part and we want to test only that part, we can go to the saukko.robot file and select only that part to test.
+
+    ...     Expected output / acceptance criteria:
+    ...         We need to see a pass in the report after testing. We need to be sure that all parts of the application work well without any errors.
