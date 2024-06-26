@@ -23,22 +23,22 @@ ${teacher.password}        123456789
 
 ${supervisor.name}    Sh-OhjaajanEtunimi
 ${supervisor.lastname}    Sh-OhjaajanSukunimi
-${supervisor.e-mail}    shahroz75+supervisor@gmail.com 
+${supervisor.e-mail}    shahroz+supervisor@mail.com 
 ${supervisor.password}        123456789 
 
 ${customer1.name}        Sh-name01
 ${customer1.lastname}    Sh-surname01
-${customer1.e-mail}        shahroz75+test01@gmail.com 
+${customer1.e-mail}        shahroz+test01@mail.com 
 ${customer1.password}        123456789
 
 ${customer2.name}        Sh-name02
 ${customer2.lastname}    Sh-surname02
-${customer2.e-mail}        shahroz75+test02@gmail.com 
+${customer2.e-mail}        shahroz+test02@mail.com 
 ${customer1.password}        123456789
 
 ${customer3.name}        Sh-name03
 ${customer3.lastname}    Sh-surname03
-${customer3.e-mail}        shahroz75+test03@gmail.com 
+${customer3.e-mail}        shahroz+test03@mail.com 
 ${customer1.password}        123456789
 
 
