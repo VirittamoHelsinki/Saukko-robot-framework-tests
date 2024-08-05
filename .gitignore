@@ -1,7 +1,9 @@
 **/report.html
 **/output.xml
 **/log.html
+**/selenium*
 
 report.html
 output.xml
 log.html
+selenium*
