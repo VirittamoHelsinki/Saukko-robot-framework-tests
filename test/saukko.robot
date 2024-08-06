@@ -1,34 +1,48 @@
 *** Settings ***
-Library     SeleniumLibrary
-Library     OperatingSystem
-Library     Collections
-Library     DateTime
-Resource    saukko-keywords.robot
-Resource    management-teacher-keywords.robot
-Resource    management-supervisor-keywords.robot
-Resource    management-customer-keywords.robot
-
-
-
+Library         SeleniumLibrary
+Library         OperatingSystem
+Library         Collections
+Library         DateTime
+Resource        saukko-keywords.robot
+Resource        management-teacher-keywords.robot
+Resource        management-supervisor-keywords.robot
+Resource        management-customer-keywords.robot
+Resource        saukko-variables.robot
+Suite Setup     Open Browserwindow
+Suite Teardown  Close Browser
 
 
 *** Test Cases ***
-Login-Logout (teacher)
-    
-    First page
-    # Right Click And Select Inspect    xpath=//div[@id='root']
+Login Logout (teacher)
+    Login User  ${test_teacher_email}  ${test_teacher_pw}  ${test_teacher_firstname}
+    Logout User
 
-    # Login and logout
-    Login as teacher
-    Wait Until Element Is Visible   xpath=//div[@class="${hamburger-menu}"]    15
-    Logout as teacher
 
-    Click Element    xpath=//section[@class="landingPage__buttons"]//button[@class="button__container "]
+Login Logout (supervisor)
+    Login User  ${test_supervisor_email}  ${test_supervisor_pw}  ${test_supervisor_firstname}
+    Logout User
 
-    # Forgot Password
-    Forgotten password case
 
-    Close Browser
+Login Logout (customer)
+    # credentials not working
+    Login User  ${customer1.e-mail}  ${customer1.password}  ${customer1.name}
+    Logout User
+
+
+# UNFINISHED
+Forgotten Password (all usertypes)
+    Forgotten Password Case  ${test_teacher_email}
+    Forgotten Password Case  ${test_supervisor_email}
+    # Forgotten Password Case  ${test_customer_email}
+
+
+
+
+#    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
+#    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
+#    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
+#    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
+#    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 
 
 Degree Management page (teacher)
@@ -42,7 +56,7 @@ Work place management page (teacher)
     Login as teacher
     Work Place Management as teacher
     Close Browser
-    
+
 Degree activation page (teacher)
     First page
     Login as teacher
@@ -54,7 +68,7 @@ General management pages (teacher)
     First page
     Login as teacher
     General management page as teacher
-    
+
 
 Login-Logout (supervisor)
     First page
@@ -77,7 +91,7 @@ General management pages (supervisor)
     First page
     Login as supervisor
     General management page as supervisor
-    
+
 
 
 Login-Logout (customer)
@@ -90,4 +104,3 @@ General management pages (customer)
     First page
     Login as customer
     General management page as customer
-    
