@@ -36,6 +36,46 @@ Forgotten Password (all usertypes)
     # Forgotten Password Case  ${test_customer_email}
 
 
+Forgotten Password Invalid Input
+    Forgotten Password Invalid Email   testi.com
+    Forgotten Password Invalid Email   testi@
+    Forgotten Password Invalid Email   testi@test
+    Forgotten Password Invalid Email   .yahoo
+    Forgotten Password Invalid Email   testi@testi@testi@testi.com
+
+
+Change Password (supervisor)
+    ${temp_pw}=       Set Variable  ${test_supervisor_pw}abc123!
+    Login User        ${test_supervisor_email}  ${test_supervisor_pw}  ${test_supervisor_firstname}
+    Change Password   ${test_supervisor_pw}  ${temp_pw}
+    Logout User
+    Login User        ${test_supervisor_email}  ${temp_pw}  ${test_supervisor_firstname}
+    Change Password   ${temp_pw}  ${test_supervisor_pw}
+    Logout User
+    Login User        ${test_supervisor_email}  ${test_supervisor_pw}  ${test_supervisor_firstname}
+
+
+Change Password (teacher)
+    ${temp_pw}=       Set Variable  ${test_teacher_pw}abc123!
+    Login User        ${test_teacher_email}  ${test_teacher_pw}  ${test_teacher_firstname}
+    Change Password   ${test_teacher_pw}  ${temp_pw}
+    Logout User
+    Login User        ${test_teacher_email}  ${temp_pw}  ${test_teacher_firstname}
+    Change Password   ${temp_pw}  ${test_teacher_pw}
+    Logout User
+    Login User        ${test_teacher_email}  ${test_teacher_pw}  ${test_teacher_firstname}
+
+
+# CREDENTIALS NOT WORKING
+Change Password (customer)
+    ${temp_pw}=       Set Variable  ${test_customer_pw}abc123!
+    Login User        ${test_customer_email}  ${test_customer_pw}  ${test_customer_firstname}
+    Change Password   ${test_customer_pw}  ${temp_pw}
+    Logout User
+    Login User        ${test_customer_email}  ${temp_pw}  ${test_customer_firstname}
+    Change Password   ${temp_pw}  ${test_customer_pw}
+    Logout User
+    Login User        ${test_customer_email}  ${test_customer_pw}  ${test_customer_firstname}
 
 
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
