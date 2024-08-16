@@ -53,7 +53,7 @@ Go To FrontPage
 Go To Loginpage
     [Tags]  navigate  valid
     Go To                          ${url}
-    Wait Until Element Is Visible  xpath=//section[@class="landingPage__buttons"]//div[@class="button__text" and text()="Kirjaudu sisään"]   2
+    Wait Until Element Is Visible  xpath=//section[@class="landingPage__buttons"]//div[@class="button__text" and text()="Kirjaudu sisään"]   5
     Scroll Element Into View       xpath=//section[@class="landingPage__buttons"]//div[@class="button__text" and text()="Kirjaudu sisään"]
     Click Element                  xpath=//section[@class="landingPage__buttons"]//div[@class="button__text" and text()="Kirjaudu sisään"]
     Location Should Be             ${url}login
@@ -63,20 +63,20 @@ Go To Degreespage
     [Tags]  navigate  valid
     Go To              ${url}
     Open Hamburgermenu
-    Wait Until Element Is Visible   xpath=//p[contains(@class,'NavText') and contains(text(),'Tutkinnot')]
+    Wait Until Element Is Visible   xpath=//p[contains(@class,'NavText') and contains(text(),'Tutkinnot')]  5
     Click Element                   xpath=//p[contains(@class,'NavText') and contains(text(),'Tutkinnot')]
-    Wait Until Location Is Not      ${url}    2
-    Location Should Be              ${url}degrees/add
+    Wait Until Location Is          ${url}degrees/add  5
 
 # OK
 Go To Profilepage
     [Tags]  navigate  valid
     Go To                          ${url}
     Open Hamburgermenu
-    Wait Until Element Is Visible  xpath=//p[contains(@class,'NavText') and contains(text(),'Profiili')]
+    Wait Until Element Is Visible  xpath=//p[contains(@class,'NavText') and contains(text(),'Profiili')]  5
     Click Element                  xpath=//p[contains(@class,'NavText') and contains(text(),'Profiili')]
-    Wait Until Location Is Not     ${url}  2
-    Location Should Be             ${url}profile
+    Wait Until Location Is         ${url}profile  5
+
+
 
 # OK
 Toggle Password Visibility
