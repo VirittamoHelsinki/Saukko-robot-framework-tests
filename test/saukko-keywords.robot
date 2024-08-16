@@ -173,6 +173,18 @@ Forgotten Password Invalid Email
     Location Should Be          ${url}forgot-password
 
 # OK
+Search And Select Degree
+    [Arguments]  ${degree}  ${searchterm}
+    Location Should Be              ${url}degrees/add
+    ${classname}=                   Set Variable  addDegree__container--list
+    ${xpath}=                       Set Variable  //*[@id="listContainer"]/div[contains(@class,"${classname}")]/p[text()="${degree}"]
+    Wait Until Element Is Visible   xpath=//*[@id="root"]/div/div/div[2]/main/div/section/div[1]/input  5
+    Input Text                      xpath=//*[@id="root"]/div/div/div[2]/main/div/section/div[1]/input  ${searchterm}
+    Wait Until Page Contains        ${degree}  5
+    Wait Until Element Is Visible   ${xpath}   5
+    Click Element                   ${xpath}
+    Wait Until Location Is Not      ${url}degrees/add  5
+
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
