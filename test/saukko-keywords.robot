@@ -185,6 +185,21 @@ Search And Select Degree
     Click Element                   ${xpath}
     Wait Until Location Is Not      ${url}degrees/add  5
 
+# OK
+Modify Degreename With Save
+    [Tags]  valid  modify  navigate
+    [Arguments]  ${new_degreename}
+    Wait Until Element Is Visible   xpath=//*[@id="root"]/div/div/div[2]/main/section/div[1]/h1/span/div  5
+    Click Element                   xpath=//*[@id="root"]/div/div/div[2]/main/section/div[1]/h1/span/div
+    Wait Until Element Is Visible   xpath=//*[@id="outlined-multiline-static"]  5
+    Click Element                   xpath=//*[@id="outlined-multiline-static"]
+    Press Keys                      xpath=//*[@id="outlined-multiline-static"]  COMMAND+a   BACKSPACE
+    Input Text                      xpath=//*[@id="outlined-multiline-static"]  ${new_degreename}
+
+    Click Element                   xpath=//div[@class="button__text" and text()="Tallenna"]
+    Page Should Contain             Tiedot tallennettu
+    Click Button                    xpath=//*[@id="customized-dialog-title"]/button
+
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
