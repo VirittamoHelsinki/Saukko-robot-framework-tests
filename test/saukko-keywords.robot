@@ -267,6 +267,26 @@ Delete Degreepart Cancel
     Reload Page
     Page Should Contain            ${partname}
 
+
+Delete Degreepart Confirm
+    [Arguments]  ${partname}  ${xpath}  ${button_xpath}
+
+    Page Should Contain            ${partname}
+    # element with partname
+    Wait Until Element Is Visible  ${xpath}  5
+    Wait Until Element Is Visible  ${button_xpath}  5
+    Click Element                  ${button_xpath}
+
+    # delete modal
+    Page Should Contain Element    xpath=//*[contains(@class, "button__container")]//*[contains(@class, "button__text") and text()="Peruuta"]
+    Page Should Contain Element    xpath=//*[contains(@class, "button__container")]//*[contains(@class, "button__text") and text()="Kyllä, arkistoi"]
+    Click Element                  xpath=//*[contains(@class, "button__container")]//*[contains(@class, "button__text") and text()="Kyllä, arkistoi"]
+
+    # delete confirmation here?
+
+    Page Should Not Contain        ${partname}
+    Reload Page
+    Page Should Not Contain        ${partname}
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
