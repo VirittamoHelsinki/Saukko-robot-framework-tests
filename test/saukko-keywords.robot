@@ -218,6 +218,22 @@ Modify Degreename Without Save
     Page Should Not Contain         ${new_degreename}
     Page Should Contain             ${degree}
 
+# OK
+Modify Degreename
+    [Arguments]  ${degree}  ${new_degreename}  ${searchterm}
+    Modify Degreename With Save     ${new_degreename}
+
+    # Validate the modification
+    Go To Degreespage
+    Search And Select Degree        ${new_degreename}  ${searchterm}
+
+    # Change back to original degree
+    Modify Degreename With Save     ${degree}
+    Go To Degreespage
+    Search And Select Degree        ${degree}  ${searchterm}
+
+    Modify Degreename Without Save  ${degree}  ${new_degreename}
+
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
