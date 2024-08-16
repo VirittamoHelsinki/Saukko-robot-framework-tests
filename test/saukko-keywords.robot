@@ -200,6 +200,24 @@ Modify Degreename With Save
     Page Should Contain             Tiedot tallennettu
     Click Button                    xpath=//*[@id="customized-dialog-title"]/button
 
+# OK
+Modify Degreename Without Save
+    [Arguments]  ${degree}  ${new_degreename}
+    Wait Until Element Is Visible   xpath=//*[@id="root"]/div/div/div[2]/main/section/div[1]/h1/span/div  5
+    Click Element                   xpath=//*[@id="root"]/div/div/div[2]/main/section/div[1]/h1/span/div
+    Wait Until Element Is Visible   xpath=//*[@id="outlined-multiline-static"]  5
+    Click Element                   xpath=//*[@id="outlined-multiline-static"]
+    Press Keys                      xpath=//*[@id="outlined-multiline-static"]  COMMAND+a   BACKSPACE
+    Input Text                      xpath=//*[@id="outlined-multiline-static"]  ${new_degreename}
+    Click Button                    xpath=/html/body/div[2]/div[3]/div/div/div/button
+
+    # validate that the information is not updated
+    Page Should Not Contain         ${new_degreename}
+    Page Should Contain             ${degree}
+    Reload Page
+    Page Should Not Contain         ${new_degreename}
+    Page Should Contain             ${degree}
+
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
