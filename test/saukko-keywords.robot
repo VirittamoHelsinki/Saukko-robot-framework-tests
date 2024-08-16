@@ -77,6 +77,15 @@ Go To Profilepage
     Wait Until Location Is         ${url}profile  5
 
 
+# OK
+Go To Jobpage
+    [Tags]  navigate  valid
+    Open Hamburgermenu
+    Wait Until Element Is Visible    xpath=//p[contains(@class,'NavText') and contains(text(),'Työpaikat')]  5
+    Click Element                    xpath=//p[contains(@class,'NavText') and contains(text(),'Työpaikat')]
+    Wait Until Location Is           ${url}add/companyname  5
+
+
 
 # OK
 Toggle Password Visibility
