@@ -40,6 +40,16 @@ Generate Random Vatnumber
 
 
 # OK
+Go To FrontPage
+    Go To Profilepage
+    Open Hamburgermenu
+    Wait Until Element Is Visible   xpath=//p[contains(@class,'NavText') and contains(text(),'Etusivu')]
+    Click Element                   xpath=//p[contains(@class,'NavText') and contains(text(),'Etusivu')]
+    Wait Until Location Is Not      ${url}profile  5
+    Location Should Be              ${url}
+
+
+# OK
 Go To Loginpage
     [Tags]  navigate  valid
     Go To                          ${url}
