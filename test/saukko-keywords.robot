@@ -234,6 +234,39 @@ Modify Degreename
 
     Modify Degreename Without Save  ${degree}  ${new_degreename}
 
+
+# OK
+Delete Degreepart Cancel
+    [Arguments]  ${partname}  ${xpath}  ${button_xpath}
+
+    Page Should Contain            ${partname}
+    # element with partname
+    Wait Until Element Is Visible  ${xpath}  5
+    Wait Until Element Is Visible  ${button_xpath}  5
+    Click Element                  ${button_xpath}
+
+    # delete modal
+    Page Should Contain Element    xpath=//*[contains(@class, "button__container")]//*[contains(@class, "button__text") and text()="Peruuta"]
+    Page Should Contain Element    xpath=//*[contains(@class, "button__container")]//*[contains(@class, "button__text") and text()="Kyllä, arkistoi"]
+    Click Element                  xpath=//*[contains(@class, "button__container")]//*[contains(@class, "button__text") and text()="Peruuta"]
+    Page Should Contain            ${partname}
+
+    Reload Page
+    Page Should Contain            ${partname}
+    Wait Until Element Is Visible  ${xpath}  5
+    Wait Until Element Is Visible  ${button_xpath}  5
+    Click Element                  ${button_xpath}
+    Page Should Contain Element    xpath=//*[contains(@class, "button__container")]//*[contains(@class, "button__text") and text()="Peruuta"]
+    Page Should Contain Element    xpath=//*[contains(@class, "button__container")]//*[contains(@class, "button__text") and text()="Kyllä, arkistoi"]
+
+    # x button
+    Page Should Contain Button     xpath=//*[@id="customized-dialog-title"]/button
+    Click Button                   xpath=//*[@id="customized-dialog-title"]/button
+    Page Should Contain            ${partname}
+
+    Reload Page
+    Page Should Contain            ${partname}
+
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
