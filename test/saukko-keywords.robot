@@ -140,9 +140,11 @@ Login User
 Logout User
     [Tags]  logout  valid
     Open Hamburgermenu
-    Wait Until Element Is Visible   xpath=//*[@id="root"]/div/div/div[1]/div[2]/div[3]/div/button  2
-    Click Button                    xpath=//*[@id="root"]/div/div/div[1]/div[2]/div[3]/div/button
-    Page Should Contain Button      xpath=//*[@id="root"]/div/div/div[2]/main/div/section[2]/button
+
+    Wait Until Element Is Visible   xpath=//p[text()="Kirjaudu ulos"]   5
+    Click Element                   xpath=//p[text()="Kirjaudu ulos"]
+
+    Page Should Contain Element     xpath=//div[@class="button__text" and text()="Kirjaudu sisään"]
     Page Should Contain             Kirjaudu sisään
 
 
