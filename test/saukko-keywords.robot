@@ -125,9 +125,9 @@ Enter Login Credentials
 # OK
 Open Hamburgermenu
     [Tags]  valid  menu
-    Wait Until Element Is Visible   xpath=//*[@id="root"]/div/div/div[2]/header/div[1]/button      3
-    Wait Until Page Contains        Kirjaudu ulos
-    Click Element                   xpath=//*[@id="root"]/div/div/div[2]/header/div[1]/button
+    Wait Until Element Is Visible   xpath=//*[@id="root"]/div/div/div[1]/div[2]/button  5
+    Click Element                   xpath=//*[@id="root"]/div/div/div[1]/div[2]/button
+    Wait Until Page Contains        Kirjaudu ulos   5
 
 # OK
 Login User
