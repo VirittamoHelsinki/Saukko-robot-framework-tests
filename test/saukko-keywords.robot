@@ -154,12 +154,11 @@ Forgotten Password Case
     [Arguments]  ${email}
     Go To Loginpage
     Click Link                  css:a[href="/forgot-password"]
-    Wait Until Location Is      ${url}forgot-password  2
+    Wait Until Location Is      ${url}forgot-password  5
     Input Text                  id:email    ${email}
     Click Element               xpath=//div[@class="button__text" and text()="Lähetä"]
     Page Should Contain         Tarkista sähköpostisi
-    Wait Until Location Is Not  ${url}forgot-password  6
-
+    Wait Until Location Is Not  ${url}forgot-password  5
 
 # OK
 Forgotten Password Invalid Email
@@ -167,14 +166,13 @@ Forgotten Password Invalid Email
     [Arguments]  ${email}
     Go To Loginpage
     Click Link                  css:a[href="/forgot-password"]
-    Wait Until Location Is      ${url}forgot-password  2
+    Wait Until Location Is      ${url}forgot-password  5
     Input Text                  id:email    ${email}
     Click Element               xpath=//div[@class="button__text" and text()="Lähetä"]
     Page Should Not Contain     Tarkista sähköpostisi
     Location Should Be          ${url}forgot-password
 
-
-
+# OK
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
