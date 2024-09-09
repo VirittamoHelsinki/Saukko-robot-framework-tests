@@ -149,9 +149,9 @@ Open Hamburgermenu
 # OK
 Login User
     [Tags]  login  navigate  valid
-    [Arguments]  ${email}  ${password}  ${firstname}
+    [Arguments]  ${email}  ${password}  ${firstname}  ${user_type}
     Go To Loginpage
-    Enter Login Credentials  ${email}  ${password}  ${firstname}
+    Enter Login Credentials  ${email}  ${password}  ${firstname}  ${user_type}
 
 # OK
 Logout User
