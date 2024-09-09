@@ -206,6 +206,22 @@ Search And Select Degree
 
 
 # OK
+Get WorkerId
+    [Arguments]  ${firstname}  ${lastname}
+    Go To FrontPage
+    ${fullname}=              Evaluate   '${firstname}${SPACE}${lastname}'
+    Wait Until Page Contains  ${fullname}  5
+
+    Page Should Contain Element    xpath=//*[contains(@class, "customerList__element")]//*[text()="${firstname}" and text()="${lastname}"]
+    Click Element                  xpath=//*[contains(@class, "customerList__element")]//*[text()="${firstname}" and text()="${lastname}"]
+
+    Location Should Contain   ${url}unit-list
+    ${current_url}=           Get Location
+    ${id}=                    Evaluate    "${current_url}".split("/")[-1]
+    Return From Keyword       ${id}
+
+
+# OK
 Get DegreeId
     [Arguments]  ${degreename}  ${searchterm}
     Go To Degreespage
