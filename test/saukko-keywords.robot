@@ -165,9 +165,10 @@ Logout User
     Page Should Contain             Kirjaudu sisään
 
 
+
 # OK
 Forgotten Password Case
-    [Tags]  valid  email  navigate
+    [Tags]  valid  email
     [Arguments]  ${email}
     Go To Loginpage
     Click Link                  css:a[href="/forgot-password"]
@@ -201,6 +202,18 @@ Search And Select Degree
     Wait Until Element Is Visible   ${xpath}   5
     Click Element                   ${xpath}
     Wait Until Location Is Not      ${url}degrees/add  5
+
+
+
+# OK
+Get DegreeId
+    [Arguments]  ${degreename}  ${searchterm}
+    Go To Degreespage
+    Search And Select Degree  ${degreename}  ${searchterm}
+    ${current_url}=           Get Location
+    ${id}=                    Evaluate    "${current_url}".split("/")[-1]
+    Return From Keyword       ${id}
+
 
 # OK
 Modify Degreename With Save
