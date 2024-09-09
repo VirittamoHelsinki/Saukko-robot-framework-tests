@@ -86,6 +86,15 @@ Go To Jobpage
     Wait Until Location Is           ${url}add/companyname  5
 
 
+# OK
+Go To Contractpage
+    [Tags]  navigate  valid
+    Open Hamburgermenu
+    Wait Until Element Is Visible    xpath=//p[contains(@class,'NavText') and contains(text(),'Luo uusi sopimus')]  5
+    Click Element                    xpath=//p[contains(@class,'NavText') and contains(text(),'Luo uusi sopimus')]
+    Wait Until Location Is           ${url}evaluation-form  5
+
+
 
 # OK
 Toggle Password Visibility
