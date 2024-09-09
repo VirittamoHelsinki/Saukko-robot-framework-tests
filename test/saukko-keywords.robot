@@ -122,14 +122,22 @@ Change Password
 # OK
 Enter Login Credentials
     [Tags]  login  valid
-    [Arguments]  ${email}  ${password}  ${firstname}
+    [Arguments]  ${email}  ${password}  ${firstname}  ${user_type}
     Location Should Be          ${url}login
     Input Text                  id:email     ${email}
     Input Password              id:password  ${password}
     Click Element               xpath=//div[@class="button__text" and text()="Kirjaudu sisään"]
-    Wait Until Location Is Not  ${url}login  3
+    Wait Until Location Is Not  ${url}login  5
+
+    IF    '${USER_TYPE}' == 'customer'
+        Location Should Contain     ${url}unit-list
+        Page Should Contain         Tervetuloa, ${firstname}
+    ELSE
     Location Should Be          ${url}
     Page Should Contain         Tervetuloa ${firstname}
+    END
+
+
 
 # OK
 Open Hamburgermenu
