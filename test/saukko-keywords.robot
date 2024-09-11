@@ -393,6 +393,22 @@ Add Customerinfo
     Wait Until Location Is Not       ${url}evaluation-form  5
 
 
+Select Workplace Parts
+    ${checkbox_class}           Set Variable   selectUnit__container--units-unit-checkbox
+
+    Location Should Be          ${url}evaluation-units
+
+    ${checkboxes}=                  Get WebElements    xpath://div[contains(@class, '${checkbox_class}')]
+    FOR                             ${checkbox}    IN    @{checkboxes}
+        Click Element               ${checkbox}
+    END
+
+    Wait Until Element Is Visible    xpath=//div[@class="button__text" and text()="Seuraava"]  5
+    Click Element                    xpath=//div[@class="button__text" and text()="Seuraava"]
+
+    Wait Until Location Is Not  ${url}evaluation-units
+
+
 # OK
 Add Customer
     Go To Contractpage
