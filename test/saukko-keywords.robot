@@ -346,6 +346,53 @@ Delete Degreepart Confirm
     Page Should Not Contain        ${partname}
     Reload Page
     Page Should Not Contain        ${partname}
+
+# OK
+Add Customerinfo
+    Location Should Be               ${url}evaluation-form
+
+    # customerinfo
+    Wait Until Element Is Visible    xpath=//*[@id="firstName"]  5
+    Input Text                       xpath=//*[@id="firstName"]  ${test_customer_firstname}
+    Wait Until Element Is Visible    xpath=//*[@id="lastName"]  5
+    Input Text                       xpath=//*[@id="lastName"]  ${test_customer_lastname}
+    Wait Until Element Is Visible    xpath=//*[@id="email"]  5
+    Input Text                       xpath=//*[@id="email"]  ${test_customer_email}
+
+    # startdate
+    Wait Until Element Is Visible    xpath=//*[@id="root"]/div/div/div[2]/main/div/section/form/div[4]/div[1]/div/div/button  5
+    Click Element                    xpath=//*[@id="root"]/div/div/div[2]/main/div/section/form/div[4]/div[1]/div/div/button
+    Click Element                    xpath=/html/body/div[2]/div[2]/div/div/div/div[2]/div/div/div[2]/div/div[2]/button[2]
+
+    #enddate
+    Wait Until Element Is Visible    xpath=//*[@id="root"]/div/div/div[2]/main/div/section/form/div[4]/div[2]/div/div/button  5
+    Click Element                    xpath=//*[@id="root"]/div/div/div[2]/main/div/section/form/div[4]/div[2]/div/div/button
+    Click Element                    xpath=/html/body/div[2]/div[2]/div/div/div/div[1]/div[2]/button[2]
+    Click Element                    xpath=/html/body/div[2]/div[2]/div/div/div/div[2]/div/div/div[2]/div/div[3]/button[5]
+
+    #input fields
+    Wait Until Element Is Visible    xpath=//*[@id="workTasks"]  5
+    Input Text                       xpath=//*[@id="workTasks"]  ${job_description}
+    Wait Until Element Is Visible    xpath=//*[@id="workGoals"]  5
+    Input Text                       xpath=//*[@id="workGoals"]  ${personal_goals}
+
+    Scroll Element Into View         xpath=//div[@class="button__text" and text()="Seuraava"]
+    Wait Until Element Is Visible    xpath=//div[@class="button__text" and text()="Seuraava"]  5
+
+    # this section (select teacher) might move to another page later!
+    Wait Until Element Is Visible  xpath=//*[@id="root"]/div/div/div[2]/main/div/section/form/div[8]/div/div/div/div/button  5
+    Click Button                   xpath=//*[@id="root"]/div/div/div[2]/main/div/section/form/div[8]/div/div/div/div/button
+    Press Keys                      None   UP
+    Press Keys                      None   UP
+    Press Keys                      None   UP
+    Press Keys                      None   UP
+    Press Keys                      None   ENTER
+    #
+
+    Click Element                    xpath=//div[@class="button__text" and text()="Seuraava"]
+    Wait Until Location Is Not       ${url}evaluation-form  5
+
+
 # OK
 Add Customer
     Go To Contractpage
