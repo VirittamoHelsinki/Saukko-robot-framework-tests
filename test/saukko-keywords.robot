@@ -393,6 +393,26 @@ Add Customerinfo
     Wait Until Location Is Not       ${url}evaluation-form  5
 
 
+# OK
+Select Workplace and Supervisor
+    Location Should Be       ${url}evaluation-workplace
+
+    Wait Until Element Is Visible   xpath=//*[@id="root"]/div/div/div[2]/main/div/section/div[2]/input  5
+    Input Text                      xpath=//*[@id="root"]/div/div/div[2]/main/div/section/div[2]/input  nahka
+
+    Page Should Contain             Nahkapaja Oy
+
+    Click Element                   xpath=//*[@id="root"]/div/div/div[2]/main/div/section/div[3]/div/div[1]/div[1]/label/span[1]/input
+    Click Element                   xpath=//*[@id="root"]/div/div/div[2]/main/div/section/div[3]/div/div[2]/div/div/div/div/div/div[1]
+    Click Element                   xpath=//*[@id="root"]/div/div/div[2]/main/div/section/div[3]/div/div[2]/div/div/div/div/div/div[2]/div/div/div/div/div
+
+    Wait Until Element Is Visible    xpath=//div[@class="button__text" and text()="Seuraava"]  5
+    Click Element                    xpath=//div[@class="button__text" and text()="Seuraava"]
+
+    Wait Until Location Is Not       ${url}evaluation-workplace  5
+
+
+
 Select Workplace Parts
     ${checkbox_class}           Set Variable   selectUnit__container--units-unit-checkbox
 
