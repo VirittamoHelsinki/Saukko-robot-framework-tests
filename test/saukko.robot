@@ -8,6 +8,7 @@ Resource        management-teacher-keywords.robot
 Resource        management-supervisor-keywords.robot
 Resource        management-customer-keywords.robot
 Resource        saukko-variables.robot
+Resource        saukko-navigation.robot
 Suite Setup     Open Browserwindow
 Suite Teardown  Close Browser
 
