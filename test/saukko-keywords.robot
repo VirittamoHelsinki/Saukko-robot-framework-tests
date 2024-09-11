@@ -346,6 +346,21 @@ Delete Degreepart Confirm
     Page Should Not Contain        ${partname}
     Reload Page
     Page Should Not Contain        ${partname}
+# OK
+Add Customer
+    Go To Contractpage
+    Add Customerinfo
+    Select Workplace and Supervisor
+    Select Workplace Parts
+    Location Should Be               ${url}evaluation-summary
+    Wait Until Element Is Visible    xpath=//div[@class="button__text" and text()="Lähetä kutsut"]  5
+    Click Element                    xpath=//div[@class="button__text" and text()="Lähetä kutsut"]
+    Page Should Contain              Kutsut lähetetty!
+    Page Should Contain              Sopimukseen liitetyille henkilöille on lähetetty kirjautumiskutsut.
+    # close popup with ESC
+    Press Keys                       None  '\ue00c'
+
+
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
 #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #    #
