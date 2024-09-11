@@ -10,7 +10,7 @@ Resource        saukko-variables.robot
 # OK
 Open Browserwindow
     # # reduced speed for debugging, comment out for speedrun
-    Set Selenium Speed          0.2
+    Set Selenium Speed          0.1
 
     Open Browser                ${url}    ${browser}
     Sleep                       5  # enough time to press the default search-engine popup in chrome
@@ -221,7 +221,7 @@ Get WorkerId
     Return From Keyword       ${id}
 
 
-# OK
+# OK, used for deleting from database
 Get DegreeId
     [Arguments]  ${degreename}  ${searchterm}
     Go To Degreespage
@@ -229,6 +229,19 @@ Get DegreeId
     ${current_url}=           Get Location
     ${id}=                    Evaluate    "${current_url}".split("/")[-1]
     Return From Keyword       ${id}
+
+
+
+# OK, used when deleting from database
+Get JobId
+    [Arguments]  ${companyname}  ${searchterm}
+    Go To Jobpage
+    Search And Select Job    ${companyname}  ${searchterm}
+
+    ${current_url}=          Get Location
+    ${id}=                   Evaluate    "${current_url}".split("/")[-1]
+    Return From Keyword      ${id}
+
 
 
 # OK
